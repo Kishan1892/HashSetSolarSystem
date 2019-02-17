@@ -13,27 +13,27 @@ public class Main {
 	public static void main(String[] args) {
 
 		// Added a Dummy Owner
-		SolarSystemBody temp = new SolarSystemBody("Kishan", "Owner", 45);
+		SolarSystemBody temp = new SolarSystemBody("Kishan", 45);
 		solarSystem.put(temp.getBodyName(), temp);
 
 		// Adding Values : Usually stored in database
-		temp = new SolarSystemBody("Earth", "Planet", 30);
+		temp = new SolarSystemBody("Earth", 30);
 		solarSystem.put(temp.getBodyName(), temp);
 		planets.add(temp);
 
-		SolarSystemBody tempMoon = new SolarSystemBody("Moon", "Satellite", 34);
+		SolarSystemBody tempMoon = new SolarSystemBody("Moon", 34);
 		solarSystem.put(tempMoon.getBodyName(), tempMoon);
 		temp.addBody(tempMoon);
 
-		temp = new SolarSystemBody("Mars", "Planet", 46);
+		temp = new SolarSystemBody("Mars", 46);
 		solarSystem.put(temp.getBodyName(), temp);
 		planets.add(temp);
 
-		tempMoon = new SolarSystemBody("Phobos", "Satellite", 45);
+		tempMoon = new SolarSystemBody("Phobos", 48);
 		solarSystem.put(tempMoon.getBodyName(), tempMoon);
 		temp.addBody(tempMoon);
 
-		tempMoon = new SolarSystemBody("Deimos", "Satellite", 46);
+		tempMoon = new SolarSystemBody("Deimos", 49);
 		solarSystem.put(tempMoon.getBodyName(), tempMoon);
 		temp.addBody(tempMoon);
 
@@ -68,7 +68,7 @@ public class Main {
 		// Print Satellites of Mars
 		SolarSystemBody mars = solarSystem.get("Mars");
 		System.out.println("-------------------");
-		System.out.println("Satellites of "+ mars.getBodyName() +  ":");
+		System.out.println("Satellites of " + mars.getBodyName() + ":");
 		for (SolarSystemBody marsSatellite : mars.getSatellites()) {
 			System.out.println("\t" + marsSatellite.getBodyName());
 		}
@@ -77,6 +77,11 @@ public class Main {
 		SolarSystemBody kishan = solarSystem.get("Kishan");
 		System.out.println("-------------------");
 		System.out.println("Prepared by: " + kishan.getBodyName());
+
+		// This Object is not added as .equals and hashcode are implemented
+		temp = new SolarSystemBody("Mars", 46);
+		solarSystem.put(temp.getBodyName(), temp);
+		planets.add(temp);
 
 	}
 
