@@ -7,18 +7,12 @@ public class SolarSystemBody {
 
 	private final String bodyName;
 	private final double distance;
-	private final String type;
 	private final Set<SolarSystemBody> satellites;
 
-	public SolarSystemBody(String bodyName, String type, double distance) {
+	public SolarSystemBody(String bodyName, double distance) {
 		this.bodyName = bodyName;
-		this.type = type;
 		this.distance = distance;
 		this.satellites = new HashSet<>();
-	}
-
-	public String getType() {
-		return type;
 	}
 
 	public String getBodyName() {
@@ -35,6 +29,30 @@ public class SolarSystemBody {
 
 	public boolean addBody(SolarSystemBody body) {
 		return this.satellites.add(body);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+
+		// Debug Purpose
+		// System.out.println("obj.getClass() is " + obj.getClass());
+		// System.out.println("this.getClass() is " + this.getClass());
+		if ((obj == null) || (obj.getClass() != this.getClass())) {
+			return false;
+		}
+
+		String objName = ((SolarSystemBody) obj).getBodyName();
+		return this.bodyName.equals(objName);
+	}
+
+	@Override
+	public int hashCode() {
+		// Debug Purpose
+		// System.out.println("hashcode was called");
+		return this.bodyName.hashCode() + 8;
 	}
 
 }
