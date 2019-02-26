@@ -14,7 +14,7 @@ public abstract class SolarSystemBody {
 	}
 
 	public SolarSystemBody(String bodyName, double distance, BODYTYPE bodytype) {
-		key = new Key(bodyName,bodytype);
+		key = new Key(bodyName, bodytype);
 		this.distance = distance;
 		this.satellites = new HashSet<>();
 	}
@@ -22,7 +22,7 @@ public abstract class SolarSystemBody {
 	public Key getKey() {
 		return key;
 	}
-	
+
 	public double getDistance() {
 		return distance;
 	}
@@ -34,11 +34,10 @@ public abstract class SolarSystemBody {
 	public boolean addBody(SolarSystemBody body) {
 		return this.satellites.add(body);
 	}
-	
-	public static Key makeKey(String name,BODYTYPE bodytype) {
-		return new Key(name,bodytype);
+
+	public static Key makeKey(String name, BODYTYPE bodytype) {
+		return new Key(name, bodytype);
 	}
-	
 
 	@Override
 	public boolean equals(Object obj) {

@@ -44,7 +44,7 @@ public class Main {
 		System.out.println("All Planets:");
 		for (SolarSystemBody planet : planets) {
 			System.out.println("\t" + planet);
-			//System.out.println("\t" + planet.getKey());
+			// System.out.println("\t" + planet.getKey());
 		}
 
 		// Print all Satellites : Way 1
@@ -76,9 +76,8 @@ public class Main {
 		for (SolarSystemBody marsSatellite : mars.getSatellites()) {
 			System.out.println("\t" + marsSatellite);
 		}
-		
-		
-		//Print Satellites of Earth
+
+		// Print Satellites of Earth
 		SolarSystemBody earth = solarSystem.get(SolarSystemBody.makeKey("Earth", SolarSystemBody.BODYTYPE.PLANET));
 		System.out.println("-------------------");
 		System.out.println("Satellites of " + earth.getKey().getBodyName() + ":");
@@ -90,20 +89,19 @@ public class Main {
 		temp = new Planet("Mars", 46);
 		solarSystem.put(temp.getKey(), temp);
 		planets.add(temp);
-		
+
 		Set<SolarSystemBody> satellitess = new HashSet<>();
 		for (SolarSystemBody planet : planets) {
 			satellitess.addAll(planet.getSatellites());
 		}
-		
-        System.out.println();
-        System.out.println("The solar system contains:");
-        System.out.println("==========================");
-        for(SolarSystemBody body : solarSystem.values()) {
-            System.out.println("\t" + body);
-        }
-        
-        
+
+		System.out.println();
+		System.out.println("The solar system contains:");
+		System.out.println("==========================");
+		for (SolarSystemBody body : solarSystem.values()) {
+			System.out.println("\t" + body);
+		}
+
 		// ME
 		System.out.println("-------------------");
 		SolarSystemBody myName = creator.stream().findFirst().get();
